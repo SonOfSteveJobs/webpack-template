@@ -1,10 +1,12 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
 type Mode = 'production' | 'development';
 
 interface EnvVariables {
-    mode: Mode
+    mode: Mode,
+    port: number
 }
 
 module.exports = (env: EnvVariables) => {
@@ -33,6 +35,10 @@ module.exports = (env: EnvVariables) => {
                 template: path.resolve(__dirname, 'public', 'index.html')
             }),
         ],
+        devServer: {
+            port: env.port ?? 3000,
+            open: true
+        },
     }
     return config;
 };
