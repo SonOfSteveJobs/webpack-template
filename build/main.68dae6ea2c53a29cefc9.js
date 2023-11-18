@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("THE SUM IS:",10)})();
