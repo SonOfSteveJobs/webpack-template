@@ -14,7 +14,7 @@ module.exports = (env: EnvVariables) => {
 
     const config = {
         mode: env.mode ?? 'development',
-        entry: path.resolve(__dirname, 'src', 'index.ts'),
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
         module: {
             rules: [
                 {
