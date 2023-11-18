@@ -10,6 +10,8 @@ interface EnvVariables {
 }
 
 module.exports = (env: EnvVariables) => {
+    const isDevMode = env.mode === 'development';
+
     const config = {
         mode: env.mode ?? 'development',
         entry: path.resolve(__dirname, 'src', 'index.ts'),
@@ -34,11 +36,12 @@ module.exports = (env: EnvVariables) => {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'public', 'index.html')
             }),
-        ],
-        devServer: {
+        ].filter(Boolean),
+        devServer: isDevMode ? {
             port: env.port ?? 3000,
             open: true
-        },
+        } : undefined,
+        devtool: isDevMode && 'inline-source-map'
     }
     return config;
 };
