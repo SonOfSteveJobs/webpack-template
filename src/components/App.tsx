@@ -1,8 +1,8 @@
-import './App.scss'
+import cls from './App.module.scss'
 
 export const App = () => {
     return (
-        <div>
+        <div className={cls.div}>
             Hello world!
         </div>
     )

@@ -10,7 +10,14 @@ export const buildLoaders = ({ mode }: BuildOptions): ModuleOptions['rules'] => 
             test: /\.s[ac]ss$/i,
             use: [
                 isDevMode ? "style-loader" : MiniCssExtractPlugin.loader,
-                "css-loader",
+                {
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            localIdentName: isDevMode ? '[path][name]__[local]' : '[hash:base64:8]'
+                        },
+                    },
+                },
                 "sass-loader"
             ],
         },
