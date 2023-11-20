@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import cls from './App.module.scss'
+import cls from './App.module.css'
 
 export const App = () => {
     return (

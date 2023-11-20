@@ -7,7 +7,7 @@ export const buildLoaders = ({ mode }: BuildOptions): ModuleOptions['rules'] => 
 
     return [
         {
-            test: /\.s[ac]ss$/i,
+            test: /\.(css|s[ac]ss)$/i,
             use: [
                 isDevMode ? "style-loader" : MiniCssExtractPlugin.loader,
                 {
